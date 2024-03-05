@@ -1,0 +1,31 @@
+body {
+    background-color: rgb(56, 56, 56);
+    color: white;
+    margin: 0;
+    font-size: 16px; 
+    font-family: Arial;
+
+}
+
+.container{
+    margin-left: 42%;
+}
+
+label {
+    padding: 10px 0 10px 0;
+    display: inline-block;
+}
+  
+input[type=submit] {
+    background-color: #00478a;
+    color: white;
+    padding: 12px 20px;
+    margin-left: 110px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+  
+input[type=submit]:hover {
+    background-color: rgb(35, 51, 105);
+}  
