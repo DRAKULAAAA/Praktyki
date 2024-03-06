@@ -1,3 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] != true) {
+    header("Location: logowanie.php");
+    exit();
+}
+$username = $_SESSION['login'];
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -9,6 +18,9 @@
 <body>
     <div class="container">
                 <h1>Formularz kontaktowy</h1>
+
+                <h2>Cześć, <?php echo $username; ?>!</h2>
+
         <form action="indeks.php" method="post">
             <label for="imie">Imię:</label>
             <input type="text" id="imie" name="imie">
@@ -22,6 +34,9 @@
             <label for="telefon">Numer telefonu:</label>
             <input type="tel" id="telefon" name="telefon">         
         <br>         
+            <a href="wylogowanie.php">Wyloguj</a>
+            <a href="podstrona.php">Usuń</a>
+            <a href="update.php">zaktualizuj</a>
             <input type="submit" value="Wyślij">
           </form>
 

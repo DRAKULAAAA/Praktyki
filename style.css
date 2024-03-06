@@ -2,13 +2,19 @@ body {
     background-color: rgb(56, 56, 56);
     color: white;
     margin: 0;
-    font-size: 16px; 
+    font-size: 17px; 
     font-family: Arial;
-
 }
 
 .container{
-    margin-left: 42%;
+    margin-left: 40%;
+}
+
+a{
+    margin-right: 10px; 
+    color: white;
+    text-decoration: none;
+  
 }
 
 label {
