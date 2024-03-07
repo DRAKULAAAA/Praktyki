@@ -19,7 +19,7 @@ $username = $_SESSION['login'];
     <div class="container">
                 <h1>Formularz kontaktowy</h1>
 
-                <h2>Cześć, <?php echo $username; ?>!</h2>
+                <h2>Cześć, <?php echo $username; ?></h2>
 
         <form action="indeks.php" method="post">
             <label for="imie">Imię:</label>
@@ -34,11 +34,11 @@ $username = $_SESSION['login'];
             <label for="telefon">Numer telefonu:</label>
             <input type="tel" id="telefon" name="telefon">         
         <br>         
-            <a href="wylogowanie.php">Wyloguj</a>
-            <a href="podstrona.php">Usuń</a>
-            <a href="update.php">zaktualizuj</a>
             <input type="submit" value="Wyślij">
           </form>
+          <a href="wylogowanie.php">Wyloguj</a>
+            <a href="podstrona.php">Usuń</a>
+            <a href="update.php">zaktualizuj</a>
 
           <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
