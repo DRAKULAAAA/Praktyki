@@ -4,25 +4,32 @@ body {
     margin: 0;
     font-size: 17px; 
     font-family: Arial;
+    text-align: center;
 }
 
-.container {
-    margin-left: 40%;
+header {
+    background-color: #00478a;
+    height: 55px;
+    padding-left: 50px;
+    display: flex;
+    align-items: center;
 }
 
-h1{
-    margin-left: 0;
-    margin-right: 330px;
-}
-
-form {
-    margin-left: 5%;  
+h1 {
+    text-align: center;
+    margin: 0 0 0 23%;
+    
 }
 
 a {
-    margin-left: 30px;
     color: white;
     text-decoration: none;
+    padding: 0px 20px;
+    order: -1;
+}
+
+form{
+    text-align: center;
 }
 
 label {
@@ -42,8 +49,7 @@ input[type=submit] {
     background-color: #00478a;
     color: white;
     padding: 12px 20px;
-    margin-left: 50px;  
-    margin-bottom: 15px;
+    margin: 15px 0 0 0;
     border: none;
     border-radius: 4px;
     cursor: pointer;
@@ -52,6 +58,10 @@ input[type=submit] {
 input[type=submit]:hover {
     background-color: rgb(39, 62, 136);
     transition-duration: .3s;
+}
+
+input[type=file]{
+    margin-left: 4%;
 }
 
 a:hover{
