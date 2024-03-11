@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style2.css">
-    <title>Dynamiczna Tabelka</title>
+    <title>Dynamiczna Tabela</title>
 </head>
 <body>
     <div id="table-container"></div>
@@ -71,3 +71,4 @@
     </script>
 </body>
 </html>
+
