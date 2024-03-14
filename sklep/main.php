@@ -14,6 +14,7 @@
     </header>
 
     <main>
+    
         <div id="products-list">
             <?php
             session_start(); 
@@ -28,7 +29,7 @@
             
             if (mysqli_num_rows($result) > 0) {
                 while($product = mysqli_fetch_assoc($result)) {
-                    echo '<div class="product">';
+                    echo '<div class="product" id="product_' . $product['id'] . '">';
                     if (!empty($product['zdjecie'])) {
                         echo '<img src="' . $product['zdjecie'] . '" alt="' . $product['nazwa_produktu'] . '">';
                     }
@@ -48,7 +49,7 @@
             mysqli_close($conn);
             ?>
         </div>
+        <script src="script.js"></script>
     </main>
-    <script src="script.js"></script>
 </body>
 </html>

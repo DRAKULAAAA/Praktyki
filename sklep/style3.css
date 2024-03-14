@@ -44,8 +44,12 @@ main {
     width: calc(25% - 200px); 
     box-sizing: border-box;
     position: relative;
+    background-color: var(--kolor-tla-ramki);
 }
 
+:root {
+    --kolor-tla-ramki: rgb(43, 43, 43);
+}
 
 #products-list {
     display: flex;
