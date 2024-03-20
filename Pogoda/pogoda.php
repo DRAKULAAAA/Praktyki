@@ -16,7 +16,6 @@
     </form>
 
     <div class="container">
-        <!-- Tutaj będzie wyświetlana pogoda -->
     </div>
 
     <?php
