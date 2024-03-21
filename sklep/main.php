@@ -1,3 +1,8 @@
+<?php  
+    session_start();
+    $user = isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true;
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -11,14 +16,13 @@
         <h2><a href="main.php">Sklep</a></h2>
         <h2 id="mid">Produkty</h2>
         <h2 id="right"><a href="koszyk.php">Koszyk</a></h2>
+        <h2 id="lgn"><?php echo $user ? '<a href="wylogowanie.php">Wyloguj się</a>' : '<a href="login.php">Zaloguj się</a>'; ?></h2>
     </header>
 
     <main>
     
         <div id="products-list">
-            <?php
-            session_start(); 
-
+            <?php  
             $conn = mysqli_connect('localhost', 'root', '', 'sklep');
             if (!$conn) {
                 die("Connection failed: " . mysqli_connect_error());
@@ -36,10 +40,20 @@
                     echo '<h2>' . $product['nazwa_produktu'] . '</h2>';
                     echo '<p>' . $product['opis'] . '</p>';
                     echo '<p>Cena: ' . $product['cena'] . ' PLN</p>';
-                    echo '<form action="dodanieDoKoszyka.php" method="post">';
-                    echo '<input type="hidden" name="product_id" value="' . $product['id'] . '">';
-                    echo '<button type="submit">Dodaj do koszyka</button>';
-                    echo '</form>';
+                    
+                    if ($user) {
+                        echo '<form action="dodanieDoKoszyka.php" method="post">';
+                        echo '<input type="hidden" name="product_id" value="' . $product['id'] . '">';
+                        echo '<div class="quantity-input">';
+                        echo '<label for="quantity_' . $product['id'] . '">Ilość:</label>';
+                        echo '<input type="number" name="quantity" id="quantity_' . $product['id'] . '" value="1" min="1">';
+                        echo '</div>';
+                        echo '<button type="submit">Dodaj do koszyka</button>';
+                        echo '</form>';
+                    } else {
+                        echo '<p>Zaloguj się, aby dodać item do koszyka.</p>';
+                    }
+                    
                     echo '</div>';
                 }
             } else {
