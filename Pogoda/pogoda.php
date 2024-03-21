@@ -33,7 +33,7 @@
         $forecastData = json_decode($forecastResponse, true);
 
         if(isset($forecastData['list'])) {
-            echo "<h2>Prognoza pogody na przyszłe 6 dni dla $city:</h2>";
+            echo "<h2>Prognoza pogody na przyszłe 6 dni dla {$_GET['city']}:</h2>";
             echo "<div class='container'>";
 
             $previousDate = '';
