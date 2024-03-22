@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pl">
 <head>
@@ -18,8 +22,6 @@
             <h3>Zawartość koszyka:</h3>
             <ul class="product-list">
                 <?php
-                session_start();
-
                 $conn = mysqli_connect('localhost', 'root', '', 'sklep');
                 if (!$conn) {
                     die("Connection failed: " . mysqli_connect_error());
@@ -53,9 +55,40 @@
                 ?>
             </ul>
 
-            <form action="usuwanieZKoszyka.php" method="post">
-                <input type="hidden" name="remove_all" value="true">
-                <button type="submit">Usuń wszystkie produkty z koszyka</button>
+            <form action="skladanieZamowienia.php" method="post">
+                <h3>Składanie zamówienia:</h3>
+                <label for="platnosc">Wybierz sposób płatności:</label><br>
+                <input type="radio" id="przelew" name="platnosc" value="przelew" checked>
+                <label for="przelew">Przelew</label><br>
+                <input type="radio" id="karta" name="platnosc" value="karta">
+                <label for="karta">Karta płatnicza</label><br>
+                <input type="radio" id="gotowka" name="platnosc" value="gotowka">
+                <label for="gotowka">Gotówka przy odbiorze</label><br><br>
+
+                <label for="wysylka">Wybierz sposób wysyłki:</label><br>
+                <input type="radio" id="kurier" name="wysylka" value="kurier" checked>
+                <label for="kurier">Kurier</label><br>
+                <input type="radio" id="poczta" name="wysylka" value="poczta">
+                <label for="poczta">Poczta</label><br>
+                <input type="radio" id="osobisty" name="wysylka" value="osobisty">
+                <label for="osobisty">Odbiór osobisty</label><br><br>
+
+                <label for="adres">Adres dostawy:</label><br>
+                <textarea name="adres" id="adres" rows="4" cols="50"></textarea><br><br>
+
+                <label for="imie">Imię:</label><br>
+                <input type="text" id="imie" name="imie"><br><br>
+
+                <label for="nazwisko">Nazwisko:</label><br>
+                <input type="text" id="nazwisko" name="nazwisko"><br><br>
+
+                <label for="email">Email:</label><br>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="telefon">Telefon:</label><br>
+                <input type="tel" id="telefon" name="telefon"><br><br>
+
+                <button type="submit">Złóż zamówienie</button>
             </form>
         </div>
     </main>
