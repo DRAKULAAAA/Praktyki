@@ -1,0 +1,7 @@
+zad1-SELECT CONCAT(c.first_name, ' ', c.last_name) AS customers_name,c.email_address, m.title AS movie_title,r.rent_date FROM Rents r JOIN Customers c ON r.customer_id = c.id JOIN Movies m ON r.movie_id = m.id;
+
+zad2-SELECT m.id, m.title, m.description, d.name AS director FROM Movies m JOIN Directors d ON m.director_id = d.id;
+
+zad3-SELECT m.id, m.title, m.description, g.name AS genre FROM Movies m JOIN Genres g ON m.genre_id = g.id;
+
+zad4-SELECT CONCAT(c.first_name, ' ', c.last_name) AS customers_name, c.email_address, m.title AS movie_title, g.name AS genre, r.rent_date FROM Rents r JOIN Customers c ON r.customer_id = c.id JOIN Movies m ON r.movie_id = m.id JOIN Genres g ON m.genre_id = g.id;
