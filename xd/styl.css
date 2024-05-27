@@ -1,0 +1,44 @@
+header{
+    color: white;
+    text-align: center;
+    height: 370px;
+}
+
+section{
+    color: white;
+    text-align: center;
+    width: 200px;
+    margin: 10px;
+    border: solid 1px black;
+    border-radius: 10px;
+}
+
+main{
+    background-color: whitesmoke;
+    height: 50px;
+}
+
+aside.lewy {
+    background-color:whitesmoke ;
+    width: 70%;
+    height: 230px;
+    float: left;
+}
+
+aside.prawy {
+    background-color: whitesmoke;
+    width: 30%;
+    height: 230px;
+    text-align: right;
+    float: right;
+}
+
+body{
+    font-family: Tahoma;
+    background-color: crimson;
+}
+
+h2{
+    text-align: center;
+    letter-spacing: 7px;
+}
