@@ -13,7 +13,13 @@
     </header>
 
     <section class="mecze">
-        
+    <?php
+            $conn = mysqli_connect("localhost", "root", "", "egzamin");
+            
+            $sql = "SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG';";
+
+            mysqli_close($conn);
+        ?>
     </section>
 
     <main>
