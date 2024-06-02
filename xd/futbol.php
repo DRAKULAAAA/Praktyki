@@ -16,10 +16,17 @@
     <?php
             $conn = mysqli_connect("localhost", "root", "", "egzamin");
             
-            $sql = "SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG';";
+           $sql = "SELECT zespol1, zespol2, wynik, data_rozgrywki FROM rozgrywka WHERE zespol1 = 'EVG';";
+                $result = $conn->query($sql);
 
-            mysqli_close($conn);
-        ?>
+                while($row = $result -> fetch_array()) {
+                    echo "<div class='mecz'>";
+                        echo "<h3>$row[0] - $row[1]</h3>";
+                        echo "<h4>$row[2]</h4>";
+                        echo "<p>w dniu: $row[3]</p>";
+                    echo "</div>";
+                }
+            ?>
     </section>
 
     <main>
@@ -31,10 +38,24 @@
            (1-bramkarze, 2-obrońcy, 3-pomocnicy, 4-napastnicy):
         </p>
 
-        <form>
-            <input type="number">
-            <button>Sprawdź</button>
-        </form>
+         <form action="futbol.php" method="post">
+                <input type="number" name="zawodnik" id="zawodnik">
+                <button type="submit">Sprawdź</button>
+            </form>
+            <?php
+                if (!empty($_POST["zawodnik"])) {
+                    $zawodnik = $_POST["zawodnik"];
+
+                    $sql = "SELECT imie, nazwisko FROM zawodnik WHERE pozycja_id = $zawodnik;";
+                    $result = $conn->query($sql);
+    
+                    echo "<ul>";
+                    while($row = $result -> fetch_array()) {
+                        echo "<li><p>$row[0] $row[1]</p></li>";
+                    }
+                    echo "</ul>";
+                }
+            ?>
     </aside>
 
     <aside class="prawy">
